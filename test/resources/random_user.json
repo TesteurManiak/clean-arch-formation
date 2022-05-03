@@ -1,0 +1,66 @@
+{
+    "results": [
+        {
+            "gender": "female",
+            "name": {
+                "title": "Ms",
+                "first": "Molly",
+                "last": "Tucker"
+            },
+            "location": {
+                "street": {
+                    "number": 450,
+                    "name": "The Avenue"
+                },
+                "city": "Salisbury",
+                "state": "Mid Glamorgan",
+                "country": "United Kingdom",
+                "postcode": "X5Q 6WE",
+                "coordinates": {
+                    "latitude": "5.7796",
+                    "longitude": "85.3342"
+                },
+                "timezone": {
+                    "offset": "+8:00",
+                    "description": "Beijing, Perth, Singapore, Hong Kong"
+                }
+            },
+            "email": "molly.tucker@example.com",
+            "login": {
+                "uuid": "befd0dba-d344-4195-a330-dc002b8b1645",
+                "username": "beautifulswan777",
+                "password": "college",
+                "salt": "prqeKuBm",
+                "md5": "9ab7e4e5979eec75af2bc301970c384c",
+                "sha1": "470f12051b20c011475dcd6f9a28ab43f9fa406f",
+                "sha256": "780a43081832599fedd5069074e0d3cc3e70836f7a8c45a09a2ae42fe573889e"
+            },
+            "dob": {
+                "date": "1946-12-01T16:20:12.790Z",
+                "age": 76
+            },
+            "registered": {
+                "date": "2002-09-30T06:48:23.744Z",
+                "age": 20
+            },
+            "phone": "017684 15959",
+            "cell": "0760-091-545",
+            "id": {
+                "name": "NINO",
+                "value": "GE 21 56 93 W"
+            },
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/women/15.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/women/15.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/women/15.jpg"
+            },
+            "nat": "GB"
+        }
+    ],
+    "info": {
+        "seed": "040869ef33dd4b6d",
+        "results": 1,
+        "page": 1,
+        "version": "1.3"
+    }
+}
