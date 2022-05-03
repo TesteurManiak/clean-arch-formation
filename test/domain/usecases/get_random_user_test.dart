@@ -25,8 +25,7 @@ void main() {
 
     test('should call fetchRandomUser from the repository', () async {
       //arrange
-      when(() => mockUserRepository.fetchRandomUser())
-          .thenAnswer((_) => Future.value());
+      when(mockUserRepository.fetchRandomUser).thenAnswer((_) async => null);
 
       //act
       await useCase();

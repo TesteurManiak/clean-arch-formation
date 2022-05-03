@@ -32,7 +32,17 @@ void main() {
 
   group('UserRepositoryImpl', () {
     group('fetchRandomUser', () {
-      test('should check if user is connected', () {});
+      test('should check if user is connected', () async {
+        // arrange
+        when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
+        when(mockRemoteDataSource.getRandomUser).thenAnswer((_) async => null);
+
+        // act
+        await repository.fetchRandomUser();
+
+        // assert
+        verify(mockNetworkInfo.isConnected);
+      });
     });
   });
 }
