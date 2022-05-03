@@ -6,5 +6,5 @@ class GetRandomUser {
 
   GetRandomUser(this._userRepository);
 
-  Future<User> call() => _userRepository.getRandomUser();
+  Future<User?> call() => _userRepository.fetchRandomUser();
 }

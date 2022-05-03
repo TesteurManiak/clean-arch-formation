@@ -23,21 +23,21 @@ void main() {
       thumbnailUrl: 'https://randomuser.me/api/portraits/thumb/',
     );
 
-    test('should call getRandomUser from the repository', () async {
+    test('should call fetchRandomUser from the repository', () async {
       //arrange
-      when(() => mockUserRepository.getRandomUser())
-          .thenAnswer((_) => Future.value(tUser));
+      when(() => mockUserRepository.fetchRandomUser())
+          .thenAnswer((_) => Future.value());
 
       //act
       await useCase();
 
       //assert
-      verify(() => mockUserRepository.getRandomUser());
+      verify(() => mockUserRepository.fetchRandomUser());
     });
 
     test('should return tUser', () async {
       //arrange
-      when(() => mockUserRepository.getRandomUser())
+      when(() => mockUserRepository.fetchRandomUser())
           .thenAnswer((_) => Future.value(tUser));
 
       //act
