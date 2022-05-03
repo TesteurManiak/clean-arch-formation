@@ -8,7 +8,6 @@ class MockSharedPreferences extends Mock implements SharedPreferences {}
 
 void main() {
   late MockSharedPreferences mockSharedPreferences;
-
   late LocalDataSourceImpl datasource;
 
   setUp(() {

@@ -12,7 +12,6 @@ class MockHttpClient extends Mock implements HttpClient {}
 
 void main() {
   late MockHttpClient mockHttpClient;
-
   late RemoteDataSourceImpl datasource;
 
   setUp(() {

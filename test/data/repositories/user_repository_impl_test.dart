@@ -16,7 +16,6 @@ void main() {
   late MockRemoteDataSource mockRemoteDataSource;
   late MockLocalDataSource mockLocalDataSource;
   late MockNetworkInfo mockNetworkInfo;
-
   late UserRepositoryImpl repository;
 
   setUp(() {

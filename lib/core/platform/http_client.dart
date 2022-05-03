@@ -7,7 +7,7 @@ abstract class HttpClient {
 class DioClient implements HttpClient {
   final Dio _dio;
 
-  DioClient({required Dio dio}) : _dio = dio;
+  DioClient(this._dio);
 
   @override
   Future<T?> get<T>(String url) async {
