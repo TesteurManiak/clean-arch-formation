@@ -43,6 +43,37 @@ void main() {
         // assert
         verify(mockNetworkInfo.isConnected);
       });
+
+      test(
+        'should call getRandomUser from remote datasource if connected',
+        () async {
+          // arrange
+          when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
+          when(mockRemoteDataSource.getRandomUser)
+              .thenAnswer((_) async => null);
+
+          // act
+          await repository.fetchRandomUser();
+
+          // assert
+          verify(mockRemoteDataSource.getRandomUser);
+        },
+      );
+
+      test(
+        'should call getLastUser from local datasource if connected',
+        () async {
+          // arrange
+          when(mockNetworkInfo.isConnected).thenAnswer((_) async => false);
+          when(mockLocalDataSource.getLastUser).thenAnswer((_) async => null);
+
+          // act
+          await repository.fetchRandomUser();
+
+          // assert
+          verify(mockLocalDataSource.getLastUser);
+        },
+      );
     });
   });
 }

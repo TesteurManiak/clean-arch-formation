@@ -31,7 +31,7 @@ void main() {
       await useCase();
 
       //assert
-      verify(() => mockUserRepository.fetchRandomUser());
+      verify(mockUserRepository.fetchRandomUser);
     });
 
     test('should return tUser', () async {
