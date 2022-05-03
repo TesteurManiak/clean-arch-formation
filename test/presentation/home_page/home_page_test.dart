@@ -9,15 +9,28 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../utils/fixture.dart';
+import '../../utils/mock_http_client.dart';
+
 class MockUserCubit extends MockCubit<UserState> implements UserCubit {}
 
-class MockHttpOverrides extends Mock implements HttpOverrides {}
+const _thumbnailUrl = 'https://randomuser.me/api/portraits/thumb/';
 
 void main() {
   late MockUserCubit mockUserCubit;
 
-  setUp(() {
-    HttpOverrides.global = MockHttpOverrides();
+  setUp(() async {
+    registerFallbackValue(Uri());
+
+    // Load an image from assets and transform it from bytes to List<int>
+    final imageByteData = await fixtureAsBytes('thumbnail.jpeg');
+    final imageIntList = imageByteData.buffer.asInt8List();
+
+    final requestsMap = {
+      Uri.parse(_thumbnailUrl): imageIntList,
+    };
+
+    HttpOverrides.global = MockHttpOverrides(requestsMap);
     mockUserCubit = MockUserCubit();
   });
 
@@ -26,7 +39,7 @@ void main() {
       id: '1',
       name: 'John Doe',
       email: 'johndoe@example.com',
-      thumbnailUrl: 'https://randomuser.me/api/portraits/thumb/',
+      thumbnailUrl: _thumbnailUrl,
     );
 
     testWidgets('initial state', (tester) async {

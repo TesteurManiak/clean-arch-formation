@@ -40,7 +40,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     user.thumbnailUrl,
                     loadingBuilder: (_, __, ___) =>
                         const CircularProgressIndicator(),
-                    errorBuilder: (_, __, ___) => const Icon(Icons.error),
                   ),
                   Text.rich(
                     TextSpan(
