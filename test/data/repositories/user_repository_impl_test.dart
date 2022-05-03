@@ -1,6 +1,7 @@
 import 'package:clean_arch_formation/core/platform/network_info.dart';
 import 'package:clean_arch_formation/data/datasources/local_datasource.dart';
 import 'package:clean_arch_formation/data/datasources/remote_datasource.dart';
+import 'package:clean_arch_formation/data/models/user_model.dart';
 import 'package:clean_arch_formation/data/repositories/user_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -32,6 +33,13 @@ void main() {
 
   group('UserRepositoryImpl', () {
     group('fetchRandomUser', () {
+      const tUser = UserModel(
+        id: '1',
+        name: 'John Doe',
+        email: 'johndoe@example.com',
+        thumbnailUrl: 'https://randomuser.me/api/portraits/thumb/',
+      );
+
       test('should check if user is connected', () async {
         // arrange
         when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
@@ -57,6 +65,24 @@ void main() {
 
           // assert
           verify(mockRemoteDataSource.getRandomUser);
+        },
+      );
+
+      test(
+        'should call saveUser from local datasource if remote data not null',
+        () async {
+          // arrange
+          when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
+          when(mockRemoteDataSource.getRandomUser)
+              .thenAnswer((_) async => tUser);
+          when(() => mockLocalDataSource.saveUser(tUser))
+              .thenAnswer((_) async => true);
+
+          // act
+          await repository.fetchRandomUser();
+
+          // assert
+          verify(() => mockLocalDataSource.saveUser(tUser));
         },
       );
 

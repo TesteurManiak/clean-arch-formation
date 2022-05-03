@@ -20,7 +20,7 @@ void main() {
     datasource = RemoteDataSourceImpl(client: mockHttpClient);
   });
 
-  group('RemoteDataSource', () {
+  group('RemoteDataSourceImpl', () {
     group('getRandomUser', () {
       const tUrl = 'https://randomuser.me/api/';
 

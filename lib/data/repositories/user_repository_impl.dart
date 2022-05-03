@@ -27,7 +27,11 @@ class UserRepositoryImpl implements UserRepository {
   Future<User?> fetchRandomUser() async {
     final isConnected = await _networkInfo.isConnected();
     if (isConnected) {
-      return _remoteDataSource.getRandomUser();
+      final user = await _remoteDataSource.getRandomUser();
+      if (user != null) {
+        await _localDataSource.saveUser(user);
+      }
+      return user;
     }
     return _localDataSource.getLastUser();
   }
