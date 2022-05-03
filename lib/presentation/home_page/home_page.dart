@@ -38,11 +38,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Image.network(
                     user.thumbnailUrl,
-                    loadingBuilder: (_, __, chunkEvent) {
-                      final percent = (chunkEvent?.cumulativeBytesLoaded ?? 0) /
-                          (chunkEvent?.expectedTotalBytes ?? 1);
-                      return CircularProgressIndicator(value: percent);
-                    },
+                    loadingBuilder: (_, __, ___) =>
+                        const CircularProgressIndicator(),
                     errorBuilder: (_, __, ___) => const Icon(Icons.error),
                   ),
                   Text.rich(
