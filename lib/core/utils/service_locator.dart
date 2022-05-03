@@ -5,6 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../data/datasources/local_datasource.dart';
 import '../../data/datasources/remote_datasource.dart';
+import '../../data/repositories/user_repository_impl.dart';
+import '../../domain/repositories/user_repository.dart';
 import '../../domain/usecases/get_random_user.dart';
 import '../platform/http_client.dart';
 import '../platform/network_info.dart';
@@ -24,6 +26,15 @@ void _setupDomain() {
 
 Future<void> _setupData() async {
   final sp = await SharedPreferences.getInstance();
+
+  //! Repositories
+  sl.registerLazySingleton<UserRepository>(
+    () => UserRepositoryImpl(
+      localDataSource: sl(),
+      remoteDataSource: sl(),
+      networkInfo: sl(),
+    ),
+  );
 
   //! Data sources
   sl.registerLazySingleton<RemoteDataSource>(
