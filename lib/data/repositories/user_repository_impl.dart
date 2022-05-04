@@ -17,12 +17,6 @@ class UserRepositoryImpl implements UserRepository {
         _localDataSource = localDataSource,
         _networkInfo = networkInfo;
 
-  /// If connected to internet, fetch data from remote data source.
-  ///
-  /// If not, return the latest received user from local data source.
-  ///
-  /// This method will return a `null` value if there is no internet connection
-  /// and no local data previously saved.
   @override
   Future<User?> fetchRandomUser() async {
     final isConnected = await _networkInfo.isConnected();
