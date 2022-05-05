@@ -1,5 +1,5 @@
-import '../../core/platform/http_client.dart';
 import '../models/user_model.dart';
+import 'platform/http_client.dart';
 
 abstract class RemoteDataSource {
   Future<UserModel?> getRandomUser();

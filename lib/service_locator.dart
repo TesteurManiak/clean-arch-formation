@@ -3,13 +3,13 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../data/datasources/local_datasource.dart';
-import '../../data/datasources/remote_datasource.dart';
-import '../../data/repositories/user_repository_impl.dart';
-import '../../domain/repositories/user_repository.dart';
-import '../../domain/usecases/get_random_user.dart';
-import '../platform/http_client.dart';
-import '../platform/network_info.dart';
+import 'data/datasources/local_datasource.dart';
+import 'data/datasources/platform/http_client.dart';
+import 'data/datasources/platform/network_info.dart';
+import 'data/datasources/remote_datasource.dart';
+import 'data/repositories/user_repository_impl.dart';
+import 'domain/repositories/user_repository.dart';
+import 'domain/usecases/get_random_user.dart';
 
 final sl = GetIt.instance;
 

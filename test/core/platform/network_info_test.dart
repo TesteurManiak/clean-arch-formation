@@ -1,4 +1,4 @@
-import 'package:clean_arch_formation/core/platform/network_info.dart';
+import 'package:clean_arch_formation/data/datasources/platform/network_info.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

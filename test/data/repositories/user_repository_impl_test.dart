@@ -1,5 +1,5 @@
-import 'package:clean_arch_formation/core/platform/network_info.dart';
 import 'package:clean_arch_formation/data/datasources/local_datasource.dart';
+import 'package:clean_arch_formation/data/datasources/platform/network_info.dart';
 import 'package:clean_arch_formation/data/datasources/remote_datasource.dart';
 import 'package:clean_arch_formation/data/models/user_model.dart';
 import 'package:clean_arch_formation/data/repositories/user_repository_impl.dart';

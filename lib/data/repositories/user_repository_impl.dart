@@ -1,7 +1,7 @@
-import '../../core/platform/network_info.dart';
 import '../../domain/entities/user.dart';
 import '../../domain/repositories/user_repository.dart';
 import '../datasources/local_datasource.dart';
+import '../datasources/platform/network_info.dart';
 import '../datasources/remote_datasource.dart';
 
 class UserRepositoryImpl implements UserRepository {

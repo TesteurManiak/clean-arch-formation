@@ -1,4 +1,4 @@
-import 'package:clean_arch_formation/core/platform/http_client.dart';
+import 'package:clean_arch_formation/data/datasources/platform/http_client.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

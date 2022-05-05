@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:clean_arch_formation/core/platform/http_client.dart';
+import 'package:clean_arch_formation/data/datasources/platform/http_client.dart';
 import 'package:clean_arch_formation/data/datasources/remote_datasource.dart';
 import 'package:clean_arch_formation/data/models/user_model.dart';
 import 'package:flutter_test/flutter_test.dart';
